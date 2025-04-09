@@ -50,7 +50,7 @@ INCLUSIONS = $(HOME)/assig/pro2/inclusions
 
 pro2_especif.exe: 
 	# $(G++) -o pro2_especif.exe pro2_especif.o obj/Cubeta.o obj/Prenda.o obj/Lavadora.o
-	$(G++) -Iinclusions -o pro2_especif.exe pro2_especif.cc Lavadora.cc obj/Cubeta.o obj/Prenda.o
+	$(G++) -Iinclusions -o pro2_especif.exe pro2_especif.cc Lavadora.cc obj/Cubeta.o Prenda.cc
 #
 
 

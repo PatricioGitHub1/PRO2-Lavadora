@@ -66,41 +66,42 @@ void writeWashingMachine(Lavadora & lav) {
     lav.escribir();
 }
 
-void start(Lavadora & lav, Cubeta & cub) {
+void start() {
+    Lavadora lav = Lavadora();
+    Cubeta cub = Cubeta();
+    
     int comm;
-    cin >> comm;
+    bool exit = false;
+    while (!exit && cin >> comm) {
+        switch (comm) {
+            case -1:
+                processInicialize(lav);
+                break;
+            case -2:
+                processAddCloth(lav);
+                break;
+            case -3:
+                processAddToBucket(cub);
+                break;
+            case -4:
+                processCompleteWashingMachine(lav, cub);
+                break;
+            case -5:
+                processStartWashing(lav);
+                break;
+            case -6:
+                writeBucket(cub);
+                break;
+            case -7:
+                writeWashingMachine(lav);
+                break;
+            case -8:
+                exit = true;
+                break;
 
-    while (comm != -8) {
-        switch (comm)
-        {
-        case -1:
-            processInicialize(lav);
-            cout << "done" << endl;
-            break;
-        case -2:
-            processAddCloth(lav);
-            break;
-        case -3:
-            processAddToBucket(cub);
-            break;
-        case -4:
-            processCompleteWashingMachine(lav, cub);
-            break;
-        case -5:
-            processStartWashing(lav);
-            break;
-        case -6:
-            writeBucket(cub);
-            break;
-        case -7:
-            writeWashingMachine(lav);
-            break;
-        
-        default:
-            break;
+            default:
+                break;
         }
-
-        cin >> comm;
     }
 }
 
@@ -108,7 +109,5 @@ void start(Lavadora & lav, Cubeta & cub) {
  * @brief Programa principal para el ejercicio <em>Gestión de una lavadora</em>.
  */
 int main() {
-    Lavadora lav = Lavadora();
-    Cubeta cub = Cubeta();
-    start(lav, cub);
+    start();
 }
